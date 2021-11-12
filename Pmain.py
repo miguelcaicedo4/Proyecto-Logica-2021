@@ -1,3 +1,5 @@
+import random
+
 class objetoCodificacion3D :
     def __init__ (self,Nf,Nc,COL,chrInit) :
         self.Nf = Nf
@@ -29,8 +31,37 @@ Ncolumnas = 10
 Colores = ['Blanco' ,'Negro']
 
 
-def Regla1():
-    
+ResFila = []
+ResColumna = []
+
+def parametrosFila():
+    ResFila.append(random.randint(0,10))
+    if ResFila[0] < 8:
+        ResFila.append(random.randint(0,ResFila[0]))
+        if ResFila[0] + ResFila[1] > 10:
+            del ResFila[:]
+            parametrosFila()
+
+def parametrosColumna():
+    ResColumna.append(random.randint(0,10))
+    if ResColumna[0] < 8:
+        ResColumna.append(random.randint(0,ResColumna[0]))
+        if ResColumna[0] + ResColumna[1] > 10:
+            del ResColumna[:]
+            parametrosColumna()
+
+
+
+
+
+
+parametrosColumna()
+parametrosFila()
+print("Estos son los parametros columna")
+print(ResColumna)
+print("Estos son los parametros fila")
+print(ResFila)
+
 
 
 
